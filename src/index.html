@@ -12,7 +12,7 @@
   <body>
     <div class="wrapper">
       <!----------------------HEADER------------------------>
-      <header class="header"> 
+      <header class="header">
         <h1 class="title">Выберите сложность:</h1>
         <button class="level-button">очень низкая</button>
         <button class="level-button">низкая</button>
@@ -22,21 +22,87 @@
       </header>
 
       <!----------------------MAIN------------------------>
-  <main class="main">
-    <div class="cards">
-      <img src="./images/img/Ancients/Azathoth.png" alt="Azathoth" class="card">
-      <img src="./images/img/Ancients/Cthulthu.png" alt="Cthulthu" class="card">
-      <img src="./images/img/Ancients/IogSothoth.png" alt="IogSothoth" class="card">
-      <img src="./images/img/Ancients/ShubNiggurath.png" alt="ShubNiggurath" class="card">
-    </div>
+      <main class="main">
+        <div class="cards">
+          <div class="card" id="card1">
+            <img src="./images/img/Ancients/Cthulthu.png" alt="Cthulthu" />
+          </div>
+          <div class="card">
+            <img
+              src="./images/img/Ancients/ShubNiggurath.png"
+              alt="ShubNiggurath"
+              id="card2"
+            />
+          </div>
+          <div class="card">
+            <img
+              src="./images/img/Ancients/IogSothoth.png"
+              alt="IogSothoth"
+              id="card3"
+            />
+          </div>
+          <div class="card">
+            <img
+              src="./images/img/Ancients/Azathoth.png"
+              alt="Azathoth"
+              id="card4"
+            />
+          </div>
+        </div>
 
-    <div class="table"></div>
+        <div class="table">
+          <div class="table-row">
+            <p class="table-row-title">первая стадия</p>
+            <div class="table-row-score">
+              <div class="circle" id="green"></div>
+              <div class="circle" id="red"></div>
+              <div class="circle" id="blue"></div>
+            </div>
+          </div>
 
-    <div class="card-deck"></div>
-  </main>
+          <div class="table-row">
+            <p class="table-row-title">вторая стадия</p>
+            <div class="table-row-score">
+              <div class="circle" id="green"></div>
+              <div class="circle" id="red"></div>
+              <div class="circle" id="blue"></div>
+            </div>
+          </div>
+
+          <div class="table-row">
+            <p class="table-row-title">третья стадия</p>
+            <div class="table-row-score">
+              <div class="circle" id="green"></div>
+              <div class="circle" id="red"></div>
+              <div class="circle" id="blue"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-deck">
+          <div class="card-deck-start">
+            <img
+              src="./images/img/mythicCardBackground.png"
+              alt="mythicCardBackground"
+            />
+          </div>
+          <div class="card-deck-open">
+            <img
+              src="./images/img/mythicCardBackground.png"
+              alt="mythicCardBackground"
+            />
+          </div>
+        </div>
+      </main>
       <!----------------------FOOTER------------------------>
       <footer class="footer">
-        
+        <p class="copyright">©2022</p>
+        <a href="https://rs.school/js/" target="_blank">
+          <img class="rsschool" src="images/svg/rs_school.svg" alt="logo_rss" />
+        </a>
+        <a href="https://github.com/Anneli-sf" target="_blank">
+          <img class="github" src="images/svg/github.png" alt="logo_github" />
+        </a>
       </footer>
     </div>
     <!-- <script src="js/script.js"></script> -->
