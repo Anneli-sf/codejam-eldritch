@@ -7,6 +7,10 @@ body {
   background-repeat: no-repeat;
 }
 
+.visible {
+  opacity: 1;
+}
+
 .wrapper {
   margin: 0 auto;
   /* padding: 0 20px; */
@@ -30,7 +34,14 @@ footer {
   color: white;
 }
 
-.level-button {
+.level-buttons {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+}
+
+.level-button,
+.card-deck-button {
   width: 150px;
   height: 50px;
   font-size: 1.5rem;
@@ -85,7 +96,11 @@ footer {
 
 /*-----------------------table-----------------------*/
 .table {
-  /* border: solid 1px white; */
+  opacity: 0;
+}
+
+.table.visible {
+  opacity: 1;
 }
 
 .table-row-title {
@@ -112,8 +127,8 @@ footer {
   background-color: #a7e46b;
 }
 
-#red {
-  background-color: #c72944;
+#brown {
+  background-color: #b16d0b;
 }
 
 #blue {
@@ -121,10 +136,27 @@ footer {
 }
 
 /*-----------------------card-deck-----------------------*/
+.card-deck-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+
+.card-deck-button {
+  margin-bottom: 20px;
+  opacity: 0;
+}
+
+.card-deck-button.visible {
+  opacity: 1;
+}
+
 .card-deck {
   display: flex;
   justify-content: center;
-  width: 40%;
+  width: 100%;
   /* border: solid 1px white; */
 }
 
@@ -133,12 +165,19 @@ footer {
   width: 45%;
   height: 100%;
   border: solid 1px grey;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.card-deck-start.visible {
+  opacity: 1;
 }
 
 .card-deck-open {
   width: 45%;
   height: 100%;
-  border: solid 1px grey;
+  /* border: solid 1px grey; */
+
 }
 
 .card-deck-start img,

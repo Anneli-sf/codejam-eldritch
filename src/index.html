@@ -14,11 +14,13 @@
       <!----------------------HEADER------------------------>
       <header class="header">
         <h1 class="title">Выберите сложность:</h1>
-        <button class="level-button">очень низкая</button>
-        <button class="level-button">низкая</button>
-        <button class="level-button">средняя</button>
-        <button class="level-button">высокая</button>
-        <button class="level-button">очень высокая</button>
+        <div class="level-buttons">
+          <button class="level-button">очень низкая</button>
+          <button class="level-button">низкая</button>
+          <button class="level-button">средняя</button>
+          <button class="level-button">высокая</button>
+          <button class="level-button">очень высокая</button>
+        </div>
       </header>
 
       <!----------------------MAIN------------------------>
@@ -55,7 +57,7 @@
             <p class="table-row-title">первая стадия</p>
             <div class="table-row-score">
               <div class="circle" id="green"></div>
-              <div class="circle" id="red"></div>
+              <div class="circle" id="brown"></div>
               <div class="circle" id="blue"></div>
             </div>
           </div>
@@ -64,7 +66,7 @@
             <p class="table-row-title">вторая стадия</p>
             <div class="table-row-score">
               <div class="circle" id="green"></div>
-              <div class="circle" id="red"></div>
+              <div class="circle" id="brown"></div>
               <div class="circle" id="blue"></div>
             </div>
           </div>
@@ -73,24 +75,28 @@
             <p class="table-row-title">третья стадия</p>
             <div class="table-row-score">
               <div class="circle" id="green"></div>
-              <div class="circle" id="red"></div>
+              <div class="circle" id="brown"></div>
               <div class="circle" id="blue"></div>
             </div>
           </div>
         </div>
 
-        <div class="card-deck">
-          <div class="card-deck-start">
-            <img
+        <div class="card-deck-wrapper">
+          <button class="card-deck-button">замешать колоду</button>
+
+          <div class="card-deck">
+            <div class="card-deck-start">
+              <img
+                src="./images/img/mythicCardBackground.png"
+                alt="mythicCardBackground"
+              />
+            </div>
+            <div class="card-deck-open">
+              <!-- <img
               src="./images/img/mythicCardBackground.png"
               alt="mythicCardBackground"
-            />
-          </div>
-          <div class="card-deck-open">
-            <img
-              src="./images/img/mythicCardBackground.png"
-              alt="mythicCardBackground"
-            />
+            /> -->
+            </div>
           </div>
         </div>
       </main>
