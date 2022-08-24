@@ -139,17 +139,23 @@ footer {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+
+  text-align: center;
+
+    line-height: 3.4rem;
+    font-size: 2rem;
+    color: black;
 }
 
-#green {
+.green-circle {
   background-color: #a7e46b;
 }
 
-#brown {
+.brown-circle {
   background-color: #b16d0b;
 }
 
-#blue {
+.blue-circle {
   background-color: #598ece;
 }
 
