@@ -2,15 +2,27 @@ import { shuffle } from "./shuffle";
 import { cardsDataBlue } from "./blue-cards";
 import { cardsDataBrown } from "./brown-cards";
 import { cardsDataGreen } from "./green-cards";
-import {currLevel} from "./start-the-game";
+import { currLevel } from "./start-the-game";
 
 // console.log('curr value', currLevel.value)
 
-let shuffledArrayGreen = shuffle(cardsDataGreen);
-let shuffledArrayBlue = shuffle(cardsDataBlue);
-let shuffledArrayBrown = shuffle(cardsDataBrown);
+function getArray(array) {
+  array = array.reduce((total, el, index, array) => {
+    if (el.difficulty != "hard") total.push(el);
+    return total;
+  }, []);
+  return array;
+}
 
-const SHUFFLED_DECK_MIDDLE = [
+let arrayGreen = getArray(cardsDataGreen);
+let arrayBrown = getArray(cardsDataBlue);
+let arrayBlue = getArray(cardsDataBrown);
+
+let shuffledArrayGreen = shuffle(arrayGreen);
+let shuffledArrayBlue = shuffle(arrayBlue);
+let shuffledArrayBrown = shuffle(arrayBrown);
+
+const SHUFFLED_DECK_EASY = [
   shuffledArrayGreen[0].cardFace,
   shuffledArrayBrown[0].cardFace,
   shuffledArrayBlue[0].cardFace,
@@ -31,5 +43,4 @@ const SHUFFLED_DECK_MIDDLE = [
   shuffledArrayBlue[8].cardFace,
 ];
 
-
-export { SHUFFLED_DECK_MIDDLE };
+export { SHUFFLED_DECK_EASY };

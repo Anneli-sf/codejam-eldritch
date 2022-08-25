@@ -3,8 +3,11 @@ import { cardsDataBrown } from "./js/brown-cards";
 import { cardsDataGreen } from "./js/green-cards";
 import { shuffle } from "./js/shuffle";
 import {
+  currAncient,
+  ALL_ANCIENTS,
+  AZATHOTH,
   ANCIENT,
-  LEVEL_BTN_MIDDLE,
+  LEVEL_BTNS,
   SHUFFLE_BTN,
   TABLE,
   CARD_DECK,
@@ -17,9 +20,11 @@ import {
 import { CARD_DECK_FACE, cardNumber, openCard, endDeck } from "./js/open-card";
 import { showScore } from "./js/score-table";
 
-ANCIENT.addEventListener("click", chooseAncient);
 
-LEVEL_BTN_MIDDLE.addEventListener("click", chooseLevel);
+
+ALL_ANCIENTS.addEventListener("click", chooseAncient);
+
+LEVEL_BTNS.addEventListener("click", chooseLevel);
 
 SHUFFLE_BTN.addEventListener("click", () => {
   startGame();
@@ -28,4 +33,5 @@ SHUFFLE_BTN.addEventListener("click", () => {
 CARD_DECK.addEventListener("click", () => {
   openCard();
   showScore();
+  
 });

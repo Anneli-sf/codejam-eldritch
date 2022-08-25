@@ -1,37 +1,53 @@
-import { showScore } from "./score-table";
+import { showScore, clearScore } from "./score-table";
 import { CARD_DECK_FACE } from "./open-card";
 
-
 const LEVEL = document.querySelector(".header");
-const ANCIENT = document.querySelector("#card4");
-const LEVEL_BTN_MIDDLE = document.querySelector(".level-buttons");
+const ALL_ANCIENTS = document.querySelector(".cards");
+const ANCIENT = document.querySelectorAll(".card");
+const AZATHOTH = document.querySelector("#card4");
+const LEVEL_BTNS = document.querySelector(".level-buttons");
 const LEVEL_BTN = document.querySelectorAll(".level-button");
-const MIDDLE_BTN = document.querySelector(".middle-btn");
+const MIDDLE_BTN = document.querySelector(".normal-level");
 const SHUFFLE_BTN = document.querySelector(".card-deck-button");
 const TABLE = document.querySelector(".table");
-const FIRST_LEVEL_TITLE = document.querySelector('#first-level-title')
-const SECOND_LEVEL_TITLE = document.querySelector('#second-level-title')
-const THIRD_LEVEL_TITLE = document.querySelector('#third-level-title')
+const FIRST_LEVEL_TITLE = document.querySelector("#first-level-title");
+const SECOND_LEVEL_TITLE = document.querySelector("#second-level-title");
+const THIRD_LEVEL_TITLE = document.querySelector("#third-level-title");
 const CARD_DECK = document.querySelector(".card-deck-start");
 
-// LEVEL_BTN.forEach(el => el.classList.add('disabled'));
-// SHUFFLE_BTN.classList.add('disabled');
-CARD_DECK.classList.add('disabled');
+CARD_DECK.classList.add("disabled");
 
-function chooseAncient() {
-  ANCIENT.classList.add("active");
+
+//----------------------------choose Ancient
+let currAncient = {};
+
+function chooseAncient(person) {
+  ANCIENT.forEach(el => el.classList.add('disabled'));
+  currAncient.id = person.target.id;
+  console.log(currAncient.id);
+  person.target.closest('.card').classList.add("active");
+  person.target.closest('.card').classList.remove('disabled');
   LEVEL.classList.add("visible");
-  // LEVEL_BTN.forEach(el => el.classList.remove('disabled'));
 }
 
-function chooseLevel(e) {
-  if (e.target.classList.contains("level-button")) {
-    e.target.classList.add("active");
-    SHUFFLE_BTN.classList.add("visible");
-    
-  }
+
+//----------------------------choose level
+let currLevel = {};
+function chooseLevel(button) {
+  CARD_DECK_FACE.innerHTML = "";
+  TABLE.classList.remove("visible");
+  clearScore();
+
+  LEVEL_BTN.forEach((el) => el.setAttribute('disabled', true));
+  currLevel.value = button.target.id;
+  console.log(currLevel.value);
+
+  button.target.classList.add("active");
+  button.target.removeAttribute('disabled', true);
+  SHUFFLE_BTN.classList.add("visible");
 }
 
+//----------------------------start game/show deck
 function startGame() {
   TABLE.classList.add("visible");
   showScore();
@@ -39,10 +55,14 @@ function startGame() {
   SHUFFLE_BTN.classList.remove("visible");
 }
 
-
 export {
+  currAncient,
+  currLevel,
+  ALL_ANCIENTS,
+  AZATHOTH,
   ANCIENT,
-  LEVEL_BTN_MIDDLE,
+  LEVEL_BTN,
+  LEVEL_BTNS,
   SHUFFLE_BTN,
   TABLE,
   CARD_DECK,
