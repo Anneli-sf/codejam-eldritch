@@ -1,5 +1,6 @@
 import {SHUFFLED_DECK_MIDDLE} from "./deck-middle-level";
 import { CARD_DECK } from "./start-the-game";
+import { THIRD_LEVEL_TITLE } from "./start-the-game";
 
 const CARD_DECK_FACE = document.querySelector(".card-deck-open");
 
@@ -20,6 +21,7 @@ function openCard() {
 function endDeck() {
     CARD_DECK.classList.remove("visible");
     CARD_DECK.removeEventListener("click", openCard);
+    THIRD_LEVEL_TITLE.classList.remove("active")
   }
 
   export {CARD_DECK_FACE, cardNumber, openCard, endDeck};

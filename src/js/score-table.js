@@ -5,6 +5,8 @@ import {
   SECOND_LEVEL_TITLE,
   THIRD_LEVEL_TITLE,
 } from "./start-the-game";
+import { SHUFFLED_DECK_MIDDLE } from "./deck-middle-level";
+
 
 const greenCircle_1 = document.querySelector("#green1");
 const greenCircle_2 = document.querySelector("#green2");
@@ -17,34 +19,48 @@ const blueCircle_2 = document.querySelector("#blue2");
 const blueCircle_3 = document.querySelector("#blue3");
 
 let count = {
-  greenCircle_1Value: ancientsData[0].firstStage.greenCards,
-  brownCircle_1Value: ancientsData[0].firstStage.brownCards,
-  blueCircle_1Value: ancientsData[0].firstStage.blueCards,
+  level_1: [ancientsData[0].firstStage.greenCards, ancientsData[0].firstStage.brownCards, ancientsData[0].firstStage.blueCards],
+  level_2: [ancientsData[0].secondStage.greenCards, ancientsData[0].secondStage.brownCards, ancientsData[0].secondStage.blueCards],
+  level_3: [ancientsData[0].thirdStage.greenCards, ancientsData[0].thirdStage.brownCards, ancientsData[0].thirdStage.blueCards]
 };
 
 function showScore() {
-  greenCircle_1.textContent = count.greenCircle_1Value;
-  greenCircle_2.textContent = ancientsData[0].secondStage.greenCards;
-  greenCircle_3.textContent = ancientsData[0].thirdStage.greenCards;
+  greenCircle_1.textContent = count.level_1[0];
+  greenCircle_2.textContent = count.level_2[0];
+  greenCircle_3.textContent = count.level_3[0];
 
-  brownCircle_1.textContent = count.brownCircle_1Value;
-  brownCircle_2.textContent = ancientsData[0].secondStage.brownCards;
-  brownCircle_3.textContent = ancientsData[0].thirdStage.brownCards;
+  brownCircle_1.textContent = count.level_1[1];
+  brownCircle_2.textContent = count.level_2[1];
+  brownCircle_3.textContent = count.level_3[1];
 
-  blueCircle_1.textContent = count.blueCircle_1Value;
-  blueCircle_2.textContent = ancientsData[0].secondStage.blueCards;
-  blueCircle_3.textContent = ancientsData[0].thirdStage.blueCards;
+  blueCircle_1.textContent = count.level_1[2];
+  blueCircle_2.textContent = count.level_2[2];
+  blueCircle_3.textContent = count.level_3[2];
 
   countScore();
 }
 
 function countScore() {
-   
-  if (count.greenCircle_1Value) {FIRST_LEVEL_TITLE.classList.add('active'); count.greenCircle_1Value--;}
-  else if (count.brownCircle_1Value) count.brownCircle_1Value--;
-  else if (count.blueCircle_1Value) count.blueCircle_1Value--;
  
-  
+  if (count.level_1[0]) {
+    FIRST_LEVEL_TITLE.classList.add("active");
+    count.level_1[0]--;
+  } else if (count.level_1[1]) count.level_1[1]--;
+  else if (count.level_1[2]) count.level_1[2]--;
+
+  else if (count.level_2[0]) {
+    FIRST_LEVEL_TITLE.classList.remove("active");
+    SECOND_LEVEL_TITLE.classList.add("active");
+    count.level_2[0]--;
+  } else if (count.level_2[1]) count.level_2[1]--;
+  else if (count.level_2[2]) count.level_2[2]--;
+
+  else if (count.level_3[0]) {
+    count.level_3[0]--;
+    SECOND_LEVEL_TITLE.classList.remove("active");
+    THIRD_LEVEL_TITLE.classList.add("active");
+  } else if (count.level_3[1]) count.level_3[1]--;
+  else if (count.level_3[2]) count.level_3[2]--;
 }
 
 export { showScore };
