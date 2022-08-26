@@ -2,10 +2,8 @@ import {SHUFFLED_DECK_MIDDLE} from "./deck-middle-level";
 import { SHUFFLED_DECK_EASY } from "./deck-easy-level";
 import { SHUFFLED_DECK_HARD } from "./deck-hard-level";
 import { SHUFFLED_DECK_VERY_EASY } from "./deck-very-easy-level";
-import { CARD_DECK } from "./start-the-game";
-import { THIRD_LEVEL_TITLE } from "./start-the-game";
-import { currLevel } from "./start-the-game";
-import { LEVEL_BTN } from "./start-the-game";
+import { currLevel, CARD_DECK, THIRD_LEVEL_TITLE, LEVEL_BTN, ALL_ANCIENTS, chooseAncient, ANCIENT } from "./start-the-game";
+
 
 const CARD_DECK_FACE = document.querySelector(".card-deck-open");
 
@@ -37,6 +35,9 @@ function endDeck() {
     LEVEL_BTN.forEach((el) => el.removeAttribute('disabled', true));
     LEVEL_BTN.forEach((el) => el.classList.remove('active'));
     CARD_DECK_FACE.classList.remove('border');
+    ALL_ANCIENTS.addEventListener("click", chooseAncient);
+    ANCIENT.forEach(el => el.classList.remove('disabled'));
+
     cardNumber = -1;
   }
 

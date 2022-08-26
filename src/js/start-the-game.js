@@ -4,6 +4,7 @@ import { CARD_DECK_FACE } from "./open-card";
 const LEVEL = document.querySelector(".header");
 const ALL_ANCIENTS = document.querySelector(".cards");
 const ANCIENT = document.querySelectorAll(".card");
+// const IMG = document.querySelectorAll(".img");
 const AZATHOTH = document.querySelector("#card4");
 const LEVEL_BTNS = document.querySelector(".level-buttons");
 const LEVEL_BTN = document.querySelectorAll(".level-button");
@@ -24,11 +25,19 @@ let count = {};
 
 function chooseAncient(person) {
   ANCIENT.forEach(el => el.classList.add('disabled'));
+  ANCIENT.forEach(el => el.classList.remove('active'));
+
+  // IMG.forEach(el => el.classList.add('disabled'));
   currAncient.id = person.target.id;
   console.log(currAncient.id);
   person.target.closest('.card').classList.add("active");
   person.target.closest('.card').classList.remove('disabled');
   LEVEL.classList.add("visible");
+
+  ALL_ANCIENTS.removeEventListener("click", chooseAncient);
+
+  TABLE.classList.remove("visible");
+  CARD_DECK_FACE.innerHTML = "";
 
   // count = getCount(currAncient.id);
 }
@@ -48,6 +57,9 @@ function chooseLevel(button) {
   button.target.classList.add("active");
   button.target.removeAttribute('disabled', true);
   SHUFFLE_BTN.classList.add("visible");
+
+  ANCIENT.forEach(el => {if (!el.classList.contains('active')) el.classList.add('disabled')});
+  ALL_ANCIENTS.removeEventListener("click", chooseAncient);
 
   count = getCount(currAncient.id);
 }
