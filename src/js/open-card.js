@@ -26,9 +26,9 @@ let cardNumber = 0;
 
 function openCard() {
   console.log("curr level", currLevel.value);
-  console.log("curr ancient id", currAncient.id);
+  // console.log("curr ancient id", currAncient.id);
   let CURR_DECK;
-  // if (currLevel.value == "normal")
+
   if (currAncient.id == 0) CURR_DECK = getArrayAzathoth();
   if (currAncient.id == 1) CURR_DECK = getArrayCthulhu();
   if (currAncient.id == 2) CURR_DECK = getArrayIogSothoth();
@@ -69,7 +69,7 @@ function shuffledArrayGreen() {
   let array;
   if (currLevel.value == "easy") {
     array = getArrayEasy(cardsDataGreen);
-  } else if (currLevel.value == "middle") {
+  } else if (currLevel.value == "normal") {
     array = cardsDataGreen;
   } else if (currLevel.value == "hard") {
     array = getArrayHard(cardsDataGreen);
@@ -83,7 +83,7 @@ function shuffledArrayBrown() {
   let array;
   if (currLevel.value == "easy") {
     array = getArrayEasy(cardsDataBrown);
-  } else if (currLevel.value == "middle") {
+  } else if (currLevel.value == "normal") {
     array = cardsDataBrown;
   } else if (currLevel.value == "hard") {
     array = getArrayHard(cardsDataBrown);
@@ -97,7 +97,7 @@ function shuffledArrayBlue() {
   let array;
   if (currLevel.value == "easy") {
     array = getArrayEasy(cardsDataBlue);
-  } else if (currLevel.value == "middle") {
+  } else if (currLevel.value == "normal") {
     array = cardsDataBlue;
   } else if (currLevel.value == "hard") {
     array = getArrayHard(cardsDataBlue);

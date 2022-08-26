@@ -26,7 +26,7 @@ LEVEL_BTNS.addEventListener("click", chooseLevel);
 
 SHUFFLE_BTN.addEventListener("click", () => {
   startGame();
-  // console.log(count);
+  console.log("curr ancient id", currAncient.id);
 });
 
 CARD_DECK.addEventListener("click", () => {
