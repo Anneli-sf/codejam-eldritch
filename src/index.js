@@ -6,7 +6,6 @@ import {
   count,
   currAncient,
   ALL_ANCIENTS,
-  AZATHOTH,
   ANCIENT,
   LEVEL_BTNS,
   SHUFFLE_BTN,
@@ -21,19 +20,16 @@ import {
 import { CARD_DECK_FACE, cardNumber, openCard, endDeck } from "./js/open-card";
 import { showScore, countScore, getCount } from "./js/score-table";
 
-
-
 ALL_ANCIENTS.addEventListener("click", chooseAncient);
 
 LEVEL_BTNS.addEventListener("click", chooseLevel);
 
 SHUFFLE_BTN.addEventListener("click", () => {
   startGame();
-  console.log(count)
+  // console.log(count);
 });
 
 CARD_DECK.addEventListener("click", () => {
   openCard();
-  showScore();  
-  // countScore();
+  showScore();
 });
