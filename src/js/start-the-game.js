@@ -1,4 +1,4 @@
-import { showScore, clearScore } from "./score-table";
+import { showScore, clearScore, getCount } from "./score-table";
 import { CARD_DECK_FACE } from "./open-card";
 
 const LEVEL = document.querySelector(".header");
@@ -20,6 +20,7 @@ CARD_DECK.classList.add("disabled");
 
 //----------------------------choose Ancient
 let currAncient = {};
+let count = {};
 
 function chooseAncient(person) {
   ANCIENT.forEach(el => el.classList.add('disabled'));
@@ -28,6 +29,8 @@ function chooseAncient(person) {
   person.target.closest('.card').classList.add("active");
   person.target.closest('.card').classList.remove('disabled');
   LEVEL.classList.add("visible");
+
+  // count = getCount(currAncient.id);
 }
 
 
@@ -36,7 +39,7 @@ let currLevel = {};
 function chooseLevel(button) {
   CARD_DECK_FACE.innerHTML = "";
   TABLE.classList.remove("visible");
-  clearScore();
+  // clearScore();
 
   LEVEL_BTN.forEach((el) => el.setAttribute('disabled', true));
   currLevel.value = button.target.id;
@@ -45,6 +48,8 @@ function chooseLevel(button) {
   button.target.classList.add("active");
   button.target.removeAttribute('disabled', true);
   SHUFFLE_BTN.classList.add("visible");
+
+  count = getCount(currAncient.id);
 }
 
 //----------------------------start game/show deck
@@ -56,6 +61,7 @@ function startGame() {
 }
 
 export {
+  count,
   currAncient,
   currLevel,
   ALL_ANCIENTS,

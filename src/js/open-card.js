@@ -15,11 +15,11 @@ function openCard() {
     let CURR_DECK;
     if (currLevel.value == 'normal') CURR_DECK = SHUFFLED_DECK_MIDDLE;
     if (currLevel.value == 'easy') CURR_DECK = SHUFFLED_DECK_EASY;
-    if (currLevel.value == 'very-easy') CURR_DECK = SHUFFLED_DECK_VERY_EASY;
+    // if (currLevel.value == 'very-easy') CURR_DECK = SHUFFLED_DECK_VERY_EASY;
     if (currLevel.value == 'hard') CURR_DECK = SHUFFLED_DECK_HARD;
     // if (currLevel.value == 'very-hard') CURR_DECK = SHUFFLED_DECK_VERY_HARD;
     
-    console.log('curr array', CURR_DECK)
+    // console.log('curr array', CURR_DECK)
 
   CARD_DECK_FACE.innerHTML = "";
   const CARD_FACE = document.createElement("img");
@@ -37,7 +37,7 @@ function endDeck() {
     LEVEL_BTN.forEach((el) => el.removeAttribute('disabled', true));
     LEVEL_BTN.forEach((el) => el.classList.remove('active'));
     CARD_DECK_FACE.classList.remove('border');
-    cardNumber = 0;
+    cardNumber = -1;
   }
 
   export {CARD_DECK_FACE, cardNumber, openCard, endDeck};

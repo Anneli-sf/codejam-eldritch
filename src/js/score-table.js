@@ -7,6 +7,7 @@ import {
 } from "./start-the-game";
 import { SHUFFLED_DECK_MIDDLE } from "./deck-middle-level";
 import { currAncient } from "./start-the-game";
+import { count } from "./start-the-game";
 
 const greenCircle_1 = document.querySelector("#green1");
 const greenCircle_2 = document.querySelector("#green2");
@@ -18,36 +19,47 @@ const blueCircle_1 = document.querySelector("#blue1");
 const blueCircle_2 = document.querySelector("#blue2");
 const blueCircle_3 = document.querySelector("#blue3");
 
-// let listAncient = {
-//   azathoth: ancientsData[0],
-//   cthulhu: ancientsData[1],
-//   iogSothoth: ancientsData[2],
-//   shubNiggurath: ancientsData[3],
-// };
-
-let count = {
+function getCount(el) {
+return {
   level_1: [
-    ancientsData[0].firstStage.greenCards,
-    ancientsData[0].firstStage.brownCards,
-    ancientsData[0].firstStage.blueCards,
+    ancientsData[el].firstStage.greenCards,
+    ancientsData[el].firstStage.brownCards,
+    ancientsData[el].firstStage.blueCards,
   ],
   level_2: [
-    ancientsData[0].secondStage.greenCards,
-    ancientsData[0].secondStage.brownCards,
-    ancientsData[0].secondStage.blueCards,
+    ancientsData[el].secondStage.greenCards,
+    ancientsData[el].secondStage.brownCards,
+    ancientsData[el].secondStage.blueCards,
   ],
   level_3: [
-    ancientsData[0].thirdStage.greenCards,
-    ancientsData[0].thirdStage.brownCards,
-    ancientsData[0].thirdStage.blueCards,
+    ancientsData[el].thirdStage.greenCards,
+    ancientsData[el].thirdStage.brownCards,
+    ancientsData[el].thirdStage.blueCards,
   ],
 };
+}
 
-// function getScore() {
-//   return (count = {});
-// }
+// let count = {
+//   level_1: [
+//     ancientsData[currAncient.id].firstStage.greenCards,
+//     ancientsData[0].firstStage.brownCards,
+//     ancientsData[0].firstStage.blueCards,
+//   ],
+//   level_2: [
+//     ancientsData[0].secondStage.greenCards,
+//     ancientsData[0].secondStage.brownCards,
+//     ancientsData[0].secondStage.blueCards,
+//   ],
+//   level_3: [
+//     ancientsData[0].thirdStage.greenCards,
+//     ancientsData[0].thirdStage.brownCards,
+//     ancientsData[0].thirdStage.blueCards,
+//   ],
+// };
 
+// let count;
 function showScore() {
+  
   greenCircle_1.textContent = count.level_1[0];
   greenCircle_2.textContent = count.level_2[0];
   greenCircle_3.textContent = count.level_3[0];
@@ -83,19 +95,24 @@ function countScore() {
   else if (count.level_3[2]) count.level_3[2]--;
 }
 
-function clearScore() {
-  greenCircle_1.textContent = '';
-  greenCircle_2.textContent = '';
-  greenCircle_3.textContent = '';
+// function clearScore() {
+//   greenCircle_1.textContent = '';
+//   greenCircle_2.textContent = '';
+//   greenCircle_3.textContent = '';
 
-  brownCircle_1.textContent = '';
-  brownCircle_2.textContent = '';
-  brownCircle_3.textContent = '';
+//   brownCircle_1.textContent = '';
+//   brownCircle_2.textContent = '';
+//   brownCircle_3.textContent = '';
 
-  blueCircle_1.textContent = '';
-  blueCircle_2.textContent = '';
-  blueCircle_3.textContent = '';
+//   blueCircle_1.textContent = '';
+//   blueCircle_2.textContent = '';
+//   blueCircle_3.textContent = '';
 
-}
+// }
 
-export { showScore, clearScore };
+export { 
+  // count, 
+  showScore, 
+  // clearScore,
+
+countScore, getCount };

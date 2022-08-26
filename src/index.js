@@ -3,6 +3,7 @@ import { cardsDataBrown } from "./js/brown-cards";
 import { cardsDataGreen } from "./js/green-cards";
 import { shuffle } from "./js/shuffle";
 import {
+  count,
   currAncient,
   ALL_ANCIENTS,
   AZATHOTH,
@@ -18,7 +19,7 @@ import {
 } from "./js/start-the-game";
 
 import { CARD_DECK_FACE, cardNumber, openCard, endDeck } from "./js/open-card";
-import { showScore } from "./js/score-table";
+import { showScore, countScore, getCount } from "./js/score-table";
 
 
 
@@ -28,10 +29,11 @@ LEVEL_BTNS.addEventListener("click", chooseLevel);
 
 SHUFFLE_BTN.addEventListener("click", () => {
   startGame();
+  console.log(count)
 });
 
 CARD_DECK.addEventListener("click", () => {
   openCard();
-  showScore();
-  
+  showScore();  
+  // countScore();
 });
