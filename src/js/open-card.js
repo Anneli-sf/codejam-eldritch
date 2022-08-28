@@ -21,8 +21,7 @@ import {
   getArrayAzathoth,
   getArrayCthulhu,
   getArrayIogSothoth,
-  getArrayShubNiggurath
-
+  getArrayShubNiggurath,
 } from "./ancients-arrays";
 import { ancientsData } from "./ancients";
 
@@ -36,14 +35,13 @@ function getDeck() {
   if (currAncient.id == 1) CURR_DECK = getArrayCthulhu();
   if (currAncient.id == 2) CURR_DECK = getArrayIogSothoth();
   if (currAncient.id == 3) CURR_DECK = getArrayShubNiggurath();
-  // console.log("curr array", CURR_DECK);
+  console.log("curr DECK", CURR_DECK);
+  console.log("curr level", currLevel.value);
+  console.log("curr ancient id", currAncient.id);
 }
 
 function openCard() {
-  console.log("curr level", currLevel.value);
-  // console.log("curr ancient id", currAncient.id);
   // console.log("curr array", CURR_DECK);
-
   CARD_DECK_FACE.innerHTML = "";
   const CARD_FACE = document.createElement("img"); //picture of the card
   CARD_DECK_FACE.classList.add("border");
@@ -70,30 +68,32 @@ function endDeck() {
 
 function shuffledArray(colored) {
   // let sumOfCards = {
-  //   greenCards:
+  //   cardsDataGreen:
   //     ancientsData[currAncient.id].firstStage.greenCards +
   //     ancientsData[currAncient.id].secondStage.greenCards +
   //     ancientsData[currAncient.id].thirdStage.greenCards,
-  //   brownCards:
+  //   cardsDataBrown:
   //     ancientsData[currAncient.id].firstStage.brownCards +
   //     ancientsData[currAncient.id].secondStage.brownCards +
   //     ancientsData[currAncient.id].thirdStage.brownCards,
-  //   blueCards:
+  //   cardsDataBlue:
   //     ancientsData[currAncient.id].firstStage.blueCards +
   //     ancientsData[currAncient.id].secondStage.blueCards +
   //     ancientsData[currAncient.id].thirdStage.blueCards,
   // };
 
   let array;
+  // let cardsColor = colored;
   // if (currLevel.value == "very-easy") {
   //   array = getArrayVeryEasy(colored);
   //   let n = array.length; console.log('array.length', array.length)
-  //   if (array.length < sumOfCards.brownCards) {
-  //     for (let i=0; i< (sumOfCards.brownCards - n); i++ )
+  //   if (array.length < sumOfCards.cardsColor) {
+  //     for (let i=0; i< (sumOfCards.cardsColor - n); i++ )
   //     if (colored[i].difficulty == 'normal')
   //     array.push(colored[i])
   //   }
   // }
+
   if (currLevel.value == "easy") {
     array = getArrayEasy(colored);
   } else if (currLevel.value == "normal") {
@@ -103,8 +103,7 @@ function shuffledArray(colored) {
   }
 
   return shuffle(array);
-};
-
+}
 
 export {
   CARD_DECK_FACE,
@@ -112,4 +111,5 @@ export {
   openCard,
   endDeck,
   getDeck,
-  shuffledArray };
+  shuffledArray,
+};
