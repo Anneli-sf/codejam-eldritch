@@ -8,7 +8,11 @@ import {
   chooseAncient,
   ANCIENT,
 } from "./start-the-game";
-import { getArrayEasy, getArrayHard } from "./get-level-array";
+import {
+  getArrayVeryEasy,
+  getArrayEasy,
+  getArrayHard,
+} from "./get-level-array";
 import { cardsDataBlue } from "./blue-cards";
 import { cardsDataGreen } from "./green-cards";
 import { cardsDataBrown } from "./brown-cards";
@@ -17,28 +21,27 @@ import {
   getArrayAzathoth,
   getArrayCthulhu,
   getArrayIogSothoth,
-  getArrayShubNiggurath,
+  getArrayShubNiggurath
+
 } from "./ancients-arrays";
+import { ancientsData } from "./ancients";
 
 const CARD_DECK_FACE = document.querySelector(".card-deck-open");
 
 let cardNumber = 0;
+let CURR_DECK;
 
-function openCard() {
-  console.log("curr level", currLevel.value);
-  // console.log("curr ancient id", currAncient.id);
-  let CURR_DECK;
-
+function getDeck() {
   if (currAncient.id == 0) CURR_DECK = getArrayAzathoth();
   if (currAncient.id == 1) CURR_DECK = getArrayCthulhu();
   if (currAncient.id == 2) CURR_DECK = getArrayIogSothoth();
   if (currAncient.id == 3) CURR_DECK = getArrayShubNiggurath();
+  // console.log("curr array", CURR_DECK);
+}
 
-  // if (currLevel.value == "easy") CURR_DECK = SHUFFLED_DECK_EASY;
-  // if (currLevel.value == 'very-easy') CURR_DECK = SHUFFLED_DECK_VERY_EASY;
-  // if (currLevel.value == "hard") CURR_DECK = SHUFFLED_DECK_HARD;
-  // if (currLevel.value == 'very-hard') CURR_DECK = SHUFFLED_DECK_VERY_HARD;
-
+function openCard() {
+  console.log("curr level", currLevel.value);
+  // console.log("curr ancient id", currAncient.id);
   // console.log("curr array", CURR_DECK);
 
   CARD_DECK_FACE.innerHTML = "";
@@ -65,54 +68,48 @@ function endDeck() {
   cardNumber = -1;
 }
 
-function shuffledArrayGreen() {
+function shuffledArray(colored) {
+  // let sumOfCards = {
+  //   greenCards:
+  //     ancientsData[currAncient.id].firstStage.greenCards +
+  //     ancientsData[currAncient.id].secondStage.greenCards +
+  //     ancientsData[currAncient.id].thirdStage.greenCards,
+  //   brownCards:
+  //     ancientsData[currAncient.id].firstStage.brownCards +
+  //     ancientsData[currAncient.id].secondStage.brownCards +
+  //     ancientsData[currAncient.id].thirdStage.brownCards,
+  //   blueCards:
+  //     ancientsData[currAncient.id].firstStage.blueCards +
+  //     ancientsData[currAncient.id].secondStage.blueCards +
+  //     ancientsData[currAncient.id].thirdStage.blueCards,
+  // };
+
   let array;
+  // if (currLevel.value == "very-easy") {
+  //   array = getArrayVeryEasy(colored);
+  //   let n = array.length; console.log('array.length', array.length)
+  //   if (array.length < sumOfCards.brownCards) {
+  //     for (let i=0; i< (sumOfCards.brownCards - n); i++ )
+  //     if (colored[i].difficulty == 'normal')
+  //     array.push(colored[i])
+  //   }
+  // }
   if (currLevel.value == "easy") {
-    array = getArrayEasy(cardsDataGreen);
+    array = getArrayEasy(colored);
   } else if (currLevel.value == "normal") {
-    array = cardsDataGreen;
+    array = colored;
   } else if (currLevel.value == "hard") {
-    array = getArrayHard(cardsDataGreen);
+    array = getArrayHard(colored);
   }
-  // let shuffledArray = shuffle(array);
 
   return shuffle(array);
-}
+};
 
-function shuffledArrayBrown() {
-  let array;
-  if (currLevel.value == "easy") {
-    array = getArrayEasy(cardsDataBrown);
-  } else if (currLevel.value == "normal") {
-    array = cardsDataBrown;
-  } else if (currLevel.value == "hard") {
-    array = getArrayHard(cardsDataBrown);
-  }
-  // let shuffledArray = shuffle(array);
-
-  return shuffle(array);
-}
-
-function shuffledArrayBlue() {
-  let array;
-  if (currLevel.value == "easy") {
-    array = getArrayEasy(cardsDataBlue);
-  } else if (currLevel.value == "normal") {
-    array = cardsDataBlue;
-  } else if (currLevel.value == "hard") {
-    array = getArrayHard(cardsDataBlue);
-  }
-  // let shuffledArray = shuffle(array);
-
-  return shuffle(array);
-}
 
 export {
   CARD_DECK_FACE,
   cardNumber,
   openCard,
   endDeck,
-  shuffledArrayBlue,
-  shuffledArrayGreen,
-  shuffledArrayBrown,
-};
+  getDeck,
+  shuffledArray };

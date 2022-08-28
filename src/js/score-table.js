@@ -1,11 +1,9 @@
-import { TABLE } from "./start-the-game";
 import { ancientsData } from "./ancients";
 import {
   FIRST_LEVEL_TITLE,
   SECOND_LEVEL_TITLE,
   THIRD_LEVEL_TITLE,
 } from "./start-the-game";
-import { currAncient } from "./start-the-game";
 import { count } from "./start-the-game";
 
 const greenCircle_1 = document.querySelector("#green1");

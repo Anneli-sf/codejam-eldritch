@@ -1,13 +1,18 @@
+import { cardsDataBlue } from "./blue-cards";
+import { cardsDataBrown } from "./brown-cards";
+import { cardsDataGreen } from "./green-cards";
 import {
-  shuffledArrayBlue,
-  shuffledArrayBrown,
-  shuffledArrayGreen,
+  shuffledArray,
 } from "./open-card";
+import { ancientsData } from "./ancients";
+import { currAncient } from "./start-the-game";
+
+
 
 function getArrayAzathoth() {
-  let arrayGreen = shuffledArrayGreen();
-  let arrayBlue = shuffledArrayBlue();
-  let arrayBrown = shuffledArrayBrown();
+  let arrayGreen = shuffledArray(cardsDataGreen);
+  let arrayBlue = shuffledArray(cardsDataBlue);
+  let arrayBrown = shuffledArray(cardsDataBrown);
 
   let arrayAzathoth = [
     arrayGreen[0].cardFace,
@@ -34,9 +39,9 @@ function getArrayAzathoth() {
 }
 
 function getArrayCthulhu() {
-  let arrayGreen = shuffledArrayGreen();
-  let arrayBlue = shuffledArrayBlue();
-  let arrayBrown = shuffledArrayBrown();
+  let arrayGreen = shuffledArray(cardsDataGreen);
+  let arrayBlue = shuffledArray(cardsDataBlue);
+  let arrayBrown = shuffledArray(cardsDataBrown);
 
   let arrayCthulhu = [
     arrayBrown[0].cardFace,
@@ -62,9 +67,9 @@ function getArrayCthulhu() {
 }
 
 function getArrayIogSothoth() {
-  let arrayGreen = shuffledArrayGreen();
-  let arrayBlue = shuffledArrayBlue();
-  let arrayBrown = shuffledArrayBrown();
+  let arrayGreen = shuffledArray(cardsDataGreen);
+  let arrayBlue = shuffledArray(cardsDataBlue);
+  let arrayBrown = shuffledArray(cardsDataBrown);
 
   let arrayIogSothoth = [
     arrayBrown[0].cardFace,
@@ -91,9 +96,9 @@ function getArrayIogSothoth() {
 }
 
 function getArrayShubNiggurath() {
-  let arrayGreen = shuffledArrayGreen();
-  let arrayBlue = shuffledArrayBlue();
-  let arrayBrown = shuffledArrayBrown();
+  let arrayGreen = shuffledArray(cardsDataGreen);
+  let arrayBlue = shuffledArray(cardsDataBlue);
+  let arrayBrown = shuffledArray(cardsDataBrown);
 
   let arrayShubNiggurath = [
     arrayGreen[0].cardFace,
@@ -124,4 +129,5 @@ export {
   getArrayCthulhu,
   getArrayIogSothoth,
   getArrayShubNiggurath,
+  
 };

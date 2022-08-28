@@ -1,13 +1,11 @@
 import { showScore, getCount } from "./score-table";
 import { CARD_DECK_FACE } from "./open-card";
 
-const LEVEL = document.querySelector(".header");
 const ALL_ANCIENTS = document.querySelector(".cards");
 const ANCIENT = document.querySelectorAll(".card");
-// const AZATHOTH = document.querySelector("#card4");
+const LEVEL = document.querySelector(".header");
 const LEVEL_BTNS = document.querySelector(".level-buttons");
 const LEVEL_BTN = document.querySelectorAll(".level-button");
-// const MIDDLE_BTN = document.querySelector(".normal-level");
 const SHUFFLE_BTN = document.querySelector(".card-deck-button");
 const TABLE = document.querySelector(".table");
 const FIRST_LEVEL_TITLE = document.querySelector("#first-level-title");
