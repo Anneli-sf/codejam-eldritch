@@ -4,7 +4,7 @@ function shuffle(array) {
     let j = Math.floor(Math.random() * (i + 1));
     [shuffleArray[i], shuffleArray[j]] = [shuffleArray[j], shuffleArray[i]];
   }
-
+  
   return shuffleArray;
 }
 

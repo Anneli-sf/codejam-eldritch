@@ -1,5 +1,4 @@
 import {
-  currAncient,
   ALL_ANCIENTS,
   LEVEL_BTNS,
   SHUFFLE_BTN,
@@ -9,7 +8,7 @@ import {
   startGame,
 } from "./js/start-the-game";
 
-import {  openCard, getDeck } from "./js/open-card";
+import { openCard, getDeck } from "./js/open-card";
 import { showScore } from "./js/score-table";
 
 ALL_ANCIENTS.addEventListener("click", chooseAncient);

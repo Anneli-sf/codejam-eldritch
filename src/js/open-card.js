@@ -137,7 +137,6 @@ function shuffledArray(colored) {
       }
     }
   }
-  // console.log(arrayCurr);
   return shuffle(arrayCurr);
 }
 

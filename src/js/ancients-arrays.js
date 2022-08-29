@@ -1,13 +1,7 @@
 import { cardsDataBlue } from "./blue-cards";
 import { cardsDataBrown } from "./brown-cards";
 import { cardsDataGreen } from "./green-cards";
-import {
-  shuffledArray,
-} from "./open-card";
-import { ancientsData } from "./ancients";
-import { currAncient } from "./start-the-game";
-
-
+import { shuffledArray } from "./open-card";
 
 function getArrayAzathoth() {
   let arrayGreen = shuffledArray(cardsDataGreen);
@@ -129,5 +123,4 @@ export {
   getArrayCthulhu,
   getArrayIogSothoth,
   getArrayShubNiggurath,
-  
 };
