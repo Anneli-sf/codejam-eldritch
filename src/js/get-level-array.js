@@ -31,12 +31,4 @@ function getArrayVeryHard(array) {
   return resArray;
 }
 
-// function getArrayHard(array) {
-//   array = array.reduce((total, el, index, array) => {
-//     if (el.difficulty != "easy") total.push(el);
-//     return total;
-//   }, []);
-//   return array;
-// }
-
-export { getArrayEasy, getArrayHard, getArrayVeryEasy };
+export { getArrayEasy, getArrayHard, getArrayVeryEasy, getArrayVeryHard };

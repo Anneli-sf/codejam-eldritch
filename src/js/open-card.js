@@ -12,6 +12,7 @@ import {
   getArrayVeryEasy,
   getArrayEasy,
   getArrayHard,
+  getArrayVeryHard,
 } from "./get-level-array";
 import { cardsDataBlue } from "./blue-cards";
 import { cardsDataGreen } from "./green-cards";
@@ -67,42 +68,82 @@ function endDeck() {
 }
 
 function shuffledArray(colored) {
-  // let sumOfCards = {
-  //   cardsDataGreen:
-  //     ancientsData[currAncient.id].firstStage.greenCards +
-  //     ancientsData[currAncient.id].secondStage.greenCards +
-  //     ancientsData[currAncient.id].thirdStage.greenCards,
-  //   cardsDataBrown:
-  //     ancientsData[currAncient.id].firstStage.brownCards +
-  //     ancientsData[currAncient.id].secondStage.brownCards +
-  //     ancientsData[currAncient.id].thirdStage.brownCards,
-  //   cardsDataBlue:
-  //     ancientsData[currAncient.id].firstStage.blueCards +
-  //     ancientsData[currAncient.id].secondStage.blueCards +
-  //     ancientsData[currAncient.id].thirdStage.blueCards,
-  // };
+  let sumOfCards = {
+    cardsGreen:
+      ancientsData[currAncient.id].firstStage.greenCards +
+      ancientsData[currAncient.id].secondStage.greenCards +
+      ancientsData[currAncient.id].thirdStage.greenCards,
+    cardsBrown:
+      ancientsData[currAncient.id].firstStage.brownCards +
+      ancientsData[currAncient.id].secondStage.brownCards +
+      ancientsData[currAncient.id].thirdStage.brownCards,
+    cardsBlue:
+      ancientsData[currAncient.id].firstStage.blueCards +
+      ancientsData[currAncient.id].secondStage.blueCards +
+      ancientsData[currAncient.id].thirdStage.blueCards,
+  };
+  console.log("sumOfCards", sumOfCards);
 
-  let array;
+  let arrayCurr;
+  let color;
   // let cardsColor = colored;
-  // if (currLevel.value == "very-easy") {
-  //   array = getArrayVeryEasy(colored);
-  //   let n = array.length; console.log('array.length', array.length)
-  //   if (array.length < sumOfCards.cardsColor) {
-  //     for (let i=0; i< (sumOfCards.cardsColor - n); i++ )
-  //     if (colored[i].difficulty == 'normal')
-  //     array.push(colored[i])
-  //   }
-  // }
+  if (colored == cardsDataGreen) color = sumOfCards.cardsGreen;
+  if (colored == cardsDataBrown) color = sumOfCards.cardsBrown;
+  if (colored == cardsDataBlue) color = sumOfCards.cardsBlue;
+  console.log("сколько цветных карт", color);
 
-  if (currLevel.value == "easy") {
-    array = getArrayEasy(colored);
-  } else if (currLevel.value == "normal") {
-    array = colored;
-  } else if (currLevel.value == "hard") {
-    array = getArrayHard(colored);
+  if (currLevel.value == "very-easy") {
+    arrayCurr = getArrayVeryEasy(colored);
+    let n = arrayCurr.length;
+    console.log("кол-во легких карт", arrayCurr.length);
+
+    // if (n < color) {
+    //   for (let i = 0; i < color - n; i++)
+    //     if (colored[i].difficulty == "normal") array.push(colored[i]);
+    //   console.log(array);
+    // }
+
+    if (n < color) {
+      for (let i = 0; i < colored.length; i++) {
+        colored = shuffle(colored);
+        if (arrayCurr.length >= color) arrayCurr = shuffle(arrayCurr);
+        else 
+        if (colored[i].difficulty == "normal" && !arrayCurr.includes(colored[i]))  arrayCurr.push(colored[i]);
+        console.log(arrayCurr);
+      }
+    } 
   }
 
-  return shuffle(array);
+  if (currLevel.value == "easy") {
+    arrayCurr = getArrayEasy(colored);
+  } else if (currLevel.value == "normal") {
+    arrayCurr = colored;
+  } else if (currLevel.value == "hard") {
+    arrayCurr = getArrayHard(colored);
+  }
+
+  if (currLevel.value == "very-hard") {
+    arrayCurr = getArrayVeryHard(colored);
+    let n = arrayCurr.length;
+    console.log("кол-во легких карт", arrayCurr.length);
+
+    // if (array.length < color) {
+    //   for (let i = 0; i < color - n; i++)
+    //     if (colored[i].difficulty == "normal") array.push(colored[i]);
+    // }
+
+    if (n < color) {
+      for (let i = 0; i < colored.length; i++) {
+        colored = shuffle(colored);
+        if (arrayCurr.length >= color) arrayCurr = shuffle(arrayCurr);
+        else 
+        if (colored[i].difficulty == "normal" && !arrayCurr.includes(colored[i]))  arrayCurr.push(colored[i]);
+        console.log(arrayCurr);
+      }
+    } 
+  }
+  // console.log(arrayCurr);
+  return shuffle(arrayCurr);
 }
 
 export {
