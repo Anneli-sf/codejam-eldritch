@@ -86,32 +86,29 @@ function shuffledArray(colored) {
 
   let arrayCurr;
   let color;
-  // let cardsColor = colored;
+
   if (colored == cardsDataGreen) color = sumOfCards.cardsGreen;
   if (colored == cardsDataBrown) color = sumOfCards.cardsBrown;
   if (colored == cardsDataBlue) color = sumOfCards.cardsBlue;
-  console.log("сколько цветных карт", color);
+  console.log("number of colored cards", color);
 
   if (currLevel.value == "very-easy") {
     arrayCurr = getArrayVeryEasy(colored);
     let n = arrayCurr.length;
-    console.log("кол-во легких карт", arrayCurr.length);
-
-    // if (n < color) {
-    //   for (let i = 0; i < color - n; i++)
-    //     if (colored[i].difficulty == "normal") array.push(colored[i]);
-    //   console.log(array);
-    // }
+    console.log("number of easy-cards", arrayCurr.length);
 
     if (n < color) {
       for (let i = 0; i < colored.length; i++) {
         colored = shuffle(colored);
         if (arrayCurr.length >= color) arrayCurr = shuffle(arrayCurr);
-        else 
-        if (colored[i].difficulty == "normal" && !arrayCurr.includes(colored[i]))  arrayCurr.push(colored[i]);
-        console.log(arrayCurr);
+        else if (
+          colored[i].difficulty == "normal" &&
+          !arrayCurr.includes(colored[i])
+        )
+          arrayCurr.push(colored[i]);
+        // console.log(arrayCurr);
       }
-    } 
+    }
   }
 
   if (currLevel.value == "easy") {
@@ -125,22 +122,20 @@ function shuffledArray(colored) {
   if (currLevel.value == "very-hard") {
     arrayCurr = getArrayVeryHard(colored);
     let n = arrayCurr.length;
-    console.log("кол-во легких карт", arrayCurr.length);
-
-    // if (array.length < color) {
-    //   for (let i = 0; i < color - n; i++)
-    //     if (colored[i].difficulty == "normal") array.push(colored[i]);
-    // }
+    console.log("number of hard cards", arrayCurr.length);
 
     if (n < color) {
       for (let i = 0; i < colored.length; i++) {
         colored = shuffle(colored);
         if (arrayCurr.length >= color) arrayCurr = shuffle(arrayCurr);
-        else 
-        if (colored[i].difficulty == "normal" && !arrayCurr.includes(colored[i]))  arrayCurr.push(colored[i]);
-        console.log(arrayCurr);
+        else if (
+          colored[i].difficulty == "normal" &&
+          !arrayCurr.includes(colored[i])
+        )
+          arrayCurr.push(colored[i]);
+        // console.log(arrayCurr);
       }
-    } 
+    }
   }
   // console.log(arrayCurr);
   return shuffle(arrayCurr);
