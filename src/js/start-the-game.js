@@ -27,7 +27,7 @@ function chooseAncient(person) {
   currAncient.id = person.target.id;
   person.target.closest(".card").classList.add("active");
   person.target.closest(".card").classList.remove("disabled");
-  console.log("currAncient.id", currAncient.id);
+  // console.log("currAncient.id", currAncient.id);
 
   LEVEL.classList.add("visible");
   TABLE.classList.remove("visible");

@@ -5,7 +5,6 @@ import {
   THIRD_LEVEL_TITLE,
 } from "./start-the-game";
 import { count } from "./start-the-game";
-import { currCardColor } from "./open-card";
 
 const greenCircle_1 = document.querySelector("#green1");
 const greenCircle_2 = document.querySelector("#green2");
@@ -37,7 +36,6 @@ function getCount(el) {
   };
 }
 
-
 function showScore(currCardColor) {
   countScore(currCardColor);
   greenCircle_1.textContent = count.level_1[0];
@@ -51,9 +49,6 @@ function showScore(currCardColor) {
   blueCircle_1.textContent = count.level_1[2];
   blueCircle_2.textContent = count.level_2[2];
   blueCircle_3.textContent = count.level_3[2];
-
-  
-  
 }
 
 function countScore(currCardColor) {
@@ -62,55 +57,19 @@ function countScore(currCardColor) {
     if (currCardColor == "Gree" && count.level_1[0]) count.level_1[0]--;
     else if (currCardColor == "Brow" && count.level_1[1]) count.level_1[1]--;
     else if (currCardColor == "Blue" && count.level_1[2]) count.level_1[2]--;
-  } 
-  else if (Math.max(count.level_2[0], count.level_2[1], count.level_2[2])) {
+  } else if (Math.max(count.level_2[0], count.level_2[1], count.level_2[2])) {
     FIRST_LEVEL_TITLE.classList.remove("active");
     SECOND_LEVEL_TITLE.classList.add("active");
     if (currCardColor == "Gree" && count.level_2[0]) count.level_2[0]--;
     else if (currCardColor == "Brow" && count.level_2[1]) count.level_2[1]--;
     else if (currCardColor == "Blue" && count.level_2[2]) count.level_2[2]--;
-  } 
-  else if (Math.max(count.level_3[0], count.level_3[1], count.level_3[2])) {
+  } else if (Math.max(count.level_3[0], count.level_3[1], count.level_3[2])) {
     SECOND_LEVEL_TITLE.classList.remove("active");
     THIRD_LEVEL_TITLE.classList.add("active");
     if (currCardColor == "Gree" && count.level_3[0]) count.level_3[0]--;
     else if (currCardColor == "Brow" && count.level_3[1]) count.level_3[1]--;
     else if (currCardColor == "Blue" && count.level_3[2]) count.level_3[2]--;
-  } 
-  // else if (count.level_1[1]) count.level_1[1]--;
-  // else if (count.level_1[2]) count.level_1[2]--;
-  // else if (count.level_2[0]) {
-  //   FIRST_LEVEL_TITLE.classList.remove("active");
-  //   SECOND_LEVEL_TITLE.classList.add("active");
-  //   count.level_2[0]--;
-  // } else if (count.level_2[1]) count.level_2[1]--;
-  // else if (count.level_2[2]) count.level_2[2]--;
-  // else if (count.level_3[0]) {
-  //   count.level_3[0]--;
-  //   SECOND_LEVEL_TITLE.classList.remove("active");
-  //   THIRD_LEVEL_TITLE.classList.add("active");
-  // } else if (count.level_3[1]) count.level_3[1]--;
-  // else if (count.level_3[2]) count.level_3[2]--;
+  }
 }
-
-// function countScore() {
-//   if (count.level_1[0]) {
-//     FIRST_LEVEL_TITLE.classList.add("active");
-//     count.level_1[0]--;
-//   } else if (count.level_1[1]) count.level_1[1]--;
-//   else if (count.level_1[2]) count.level_1[2]--;
-//   else if (count.level_2[0]) {
-//     FIRST_LEVEL_TITLE.classList.remove("active");
-//     SECOND_LEVEL_TITLE.classList.add("active");
-//     count.level_2[0]--;
-//   } else if (count.level_2[1]) count.level_2[1]--;
-//   else if (count.level_2[2]) count.level_2[2]--;
-//   else if (count.level_3[0]) {
-//     count.level_3[0]--;
-//     SECOND_LEVEL_TITLE.classList.remove("active");
-//     THIRD_LEVEL_TITLE.classList.add("active");
-//   } else if (count.level_3[1]) count.level_3[1]--;
-//   else if (count.level_3[2]) count.level_3[2]--;
-// }
 
 export { showScore, countScore, getCount };
