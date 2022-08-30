@@ -41,6 +41,7 @@ function getDeck() {
   console.log("curr ancient id", currAncient.id);
 }
 
+let currCardColor;
 function openCard() {
   // console.log("curr array", CURR_DECK);
   CARD_DECK_FACE.innerHTML = "";
@@ -50,6 +51,11 @@ function openCard() {
   CARD_DECK_FACE.append(CARD_FACE);
   if (cardNumber == CURR_DECK.length - 1) endDeck();
   cardNumber++;
+
+  currCardColor = CARD_FACE.src; //color of current open card
+  currCardColor = currCardColor.slice(46, 50);
+  // console.log(currCardColor);
+
 }
 
 function endDeck() {
@@ -64,6 +70,7 @@ function endDeck() {
   ALL_ANCIENTS.addEventListener("click", chooseAncient);
   ANCIENT.forEach((el) => el.classList.remove("disabled"));
 
+  // cardNumber = 0;
   cardNumber = -1;
 }
 
@@ -82,7 +89,7 @@ function shuffledArray(colored) {
       ancientsData[currAncient.id].secondStage.blueCards +
       ancientsData[currAncient.id].thirdStage.blueCards,
   };
-  console.log("sumOfCards", sumOfCards);
+  // console.log("sumOfCards", sumOfCards);
 
   let arrayCurr;
   let color;
@@ -90,12 +97,12 @@ function shuffledArray(colored) {
   if (colored == cardsDataGreen) color = sumOfCards.cardsGreen;
   if (colored == cardsDataBrown) color = sumOfCards.cardsBrown;
   if (colored == cardsDataBlue) color = sumOfCards.cardsBlue;
-  console.log("number of colored cards", color);
+  // console.log("number of colored cards", color);
 
   if (currLevel.value == "very-easy") {
     arrayCurr = getArrayVeryEasy(colored);
     let n = arrayCurr.length;
-    console.log("number of easy-cards", arrayCurr.length);
+    // console.log("number of easy-cards", arrayCurr.length);
 
     if (n < color) {
       for (let i = 0; i < colored.length; i++) {
@@ -122,7 +129,7 @@ function shuffledArray(colored) {
   if (currLevel.value == "very-hard") {
     arrayCurr = getArrayVeryHard(colored);
     let n = arrayCurr.length;
-    console.log("number of hard cards", arrayCurr.length);
+    // console.log("number of hard cards", arrayCurr.length);
 
     if (n < color) {
       for (let i = 0; i < colored.length; i++) {
@@ -143,6 +150,7 @@ function shuffledArray(colored) {
 export {
   CARD_DECK_FACE,
   cardNumber,
+  currCardColor,
   openCard,
   endDeck,
   getDeck,

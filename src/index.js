@@ -5,10 +5,9 @@ import {
   CARD_DECK,
   chooseAncient,
   chooseLevel,
-  startGame,
+  startGame  
 } from "./js/start-the-game";
-
-import { openCard, getDeck } from "./js/open-card";
+import { openCard, getDeck, currCardColor } from "./js/open-card";
 import { showScore } from "./js/score-table";
 
 ALL_ANCIENTS.addEventListener("click", chooseAncient);
@@ -22,6 +21,10 @@ SHUFFLE_BTN.addEventListener("click", () => {
 });
 
 CARD_DECK.addEventListener("click", () => {
+ 
   openCard();
-  showScore();
+  // countScore(currCardColor);
+  showScore(currCardColor);
+
+  
 });
