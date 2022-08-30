@@ -41,7 +41,7 @@ function getDeck() {
   console.log("curr ancient id", currAncient.id);
 }
 
-let currCardColor;
+let currCardColor = {};
 function openCard() {
   // console.log("curr array", CURR_DECK);
   CARD_DECK_FACE.innerHTML = "";
@@ -52,8 +52,8 @@ function openCard() {
   if (cardNumber == CURR_DECK.length - 1) endDeck();
   cardNumber++;
 
-  currCardColor = CARD_FACE.src; //color of current open card
-  currCardColor = currCardColor.slice(46, 50);
+  currCardColor.value = CARD_FACE.src; //color of current open card
+  currCardColor.value = currCardColor.value.slice(46, 50);
   // console.log(currCardColor);
 
 }

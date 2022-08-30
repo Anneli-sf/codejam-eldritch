@@ -24,7 +24,7 @@ CARD_DECK.addEventListener("click", () => {
  
   openCard();
   // countScore(currCardColor);
-  showScore(currCardColor);
+  showScore(currCardColor.value);
 
   
 });
