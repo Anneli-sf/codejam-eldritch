@@ -54,21 +54,21 @@ function showScore(currCardColor) {
 function countScore(currCardColor) {
   if (Math.max(count.level_1[0], count.level_1[1], count.level_1[2])) {
     FIRST_LEVEL_TITLE.classList.add("active");
-    if (currCardColor == "Gree" && count.level_1[0]) count.level_1[0]--;
-    else if (currCardColor == "Brow" && count.level_1[1]) count.level_1[1]--;
-    else if (currCardColor == "Blue" && count.level_1[2]) count.level_1[2]--;
+    if (currCardColor == "reen" && count.level_1[0]) count.level_1[0]--;
+    else if (currCardColor == "rown" && count.level_1[1]) count.level_1[1]--;
+    else if (currCardColor == "blue" && count.level_1[2]) count.level_1[2]--;
   } else if (Math.max(count.level_2[0], count.level_2[1], count.level_2[2])) {
     FIRST_LEVEL_TITLE.classList.remove("active");
     SECOND_LEVEL_TITLE.classList.add("active");
-    if (currCardColor == "Gree" && count.level_2[0]) count.level_2[0]--;
-    else if (currCardColor == "Brow" && count.level_2[1]) count.level_2[1]--;
-    else if (currCardColor == "Blue" && count.level_2[2]) count.level_2[2]--;
+    if (currCardColor == "reen" && count.level_2[0]) count.level_2[0]--;
+    else if (currCardColor == "rown" && count.level_2[1]) count.level_2[1]--;
+    else if (currCardColor == "blue" && count.level_2[2]) count.level_2[2]--;
   } else if (Math.max(count.level_3[0], count.level_3[1], count.level_3[2])) {
     SECOND_LEVEL_TITLE.classList.remove("active");
     THIRD_LEVEL_TITLE.classList.add("active");
-    if (currCardColor == "Gree" && count.level_3[0]) count.level_3[0]--;
-    else if (currCardColor == "Brow" && count.level_3[1]) count.level_3[1]--;
-    else if (currCardColor == "Blue" && count.level_3[2]) count.level_3[2]--;
+    if (currCardColor == "reen" && count.level_3[0]) count.level_3[0]--;
+    else if (currCardColor == "rown" && count.level_3[1]) count.level_3[1]--;
+    else if (currCardColor == "blue" && count.level_3[2]) count.level_3[2]--;
   }
 }
 
